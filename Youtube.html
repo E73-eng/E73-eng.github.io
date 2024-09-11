@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASS - Body and Paint</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            width: calc(100% - 30px);
+            /* Ajustar el ancho para la barra lateral */
+            top: 0;
+            left: 0;
+            /* Alineado al borde izquierdo */
+            z-index: 10;
+            /* Asegurar que esté por encima de otros elementos */
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            margin-right: 20px;
+            /* Espacio para los íconos */
+        }
+
+        .sidebar {
+            background-color: #2d2d2d;
+            padding: 10px;
+            height: 100vh;
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin-top: 57px;
+            /* Espacio debajo del encabezado */
+        }
+
+        .sidebar i {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .sidebar .menu-item {
+            /* Espacio debajo del ícono */
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .sidebar .menu-item:hover .submenu {
+            display: block;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 80px;
+            /* Ajustar para que no se solape con la barra lateral */
+            top: 0;
+            /* Justo debajo del ícono */
+            background-color: #444;
+            padding: 10px;
+            border-radius: 10px;
+            width: 145px;
+            /* Ajustar el ancho si es necesario */
+            z-index: 20;
+            /* Asegurar que el submenú esté por encima de otros elementos */
+        }
+
+        .submenu a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 0;
+            padding-left: 20px;
+        }
+
+        .submenu a:hover {
+            background-color: #555;
+        }
+
+        .main {
+            margin-left: 100px;
+            /* Añadido margen para evitar solapamiento con la barra lateral */
+            padding: 20px;
+            margin-top: 60px;
+            /* Añadido margen superior para evitar solapamiento con el encabezado */
+        }
+
+        .form {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        .form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form input[type="text"] {
+            width: 1353px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>MENU</h1>
+    </header>
+    <div class="sidebar">
+
+        <br>
+        
+        <div class="menu-item">
+            <a href="MensajeWhats.html">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <div class="submenu">
+                <a>Enviar Msj</a>
+            </div>
+        </div>
+    
+        <div class="menu-item">
+            <a href="Peliculas.html">
+                <i class="fa-solid fa-video"></i>
+            </a>
+            <div class="submenu">
+                <a>Peliculas</a>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <a href="BorrarHistorial.html">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+            <div class="submenu">
+                <a>Eliminar historial</a>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <a href="Youtube.html">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <div class="submenu">
+                <a>Entrar a Youtube</a>
+            </div>
+        </div>    
+
+        <br><br><br><br><br><br><br>
+
+        <div class="menu-item">
+
+            <a href="login.html">
+                <i class="fa-solid fa-user-xmark"></i>
+            </a>
+            <div class="submenu">
+                <a>SALIR</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="main">
+        <div class="form">
+
+            <center>
+                <h2>" YOUTUBE "</h2>
+            </center>
+
+            <label for="TextoABuscar">Busqueda</label>
+            <input type="text" id="texto" placeholder="Ingresa lo que deseas buscar en Youtube">
+
+            <div class="buttons">
+                <button class="button" onclick="BusquedaYotube()">Buscar</button>
+            </div>            
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("texto").addEventListener("keypress", function(event) {
+            if (event.key === 'Enter') {
+                BusquedaYotube();
+            }
+        });
+    </script>
+
+    <script>
+        function BusquedaYotube() {
+            var texto = document.getElementById("texto").value;
+            window.open("https://www.youtube.com/results?search_query=" + texto, "_blank");
+            document.getElementById("texto").value = "";
+        }
+    </script>
+</body>
+</html>
